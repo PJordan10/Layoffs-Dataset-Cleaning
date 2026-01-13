@@ -1,9 +1,10 @@
 # Layoffs Dataset – SQL Data Cleaning & Analysis Readiness (MySQL)
 ## 📌 Project Overview
 
-This project focuses on transforming a raw layoffs dataset into a clean, reliable, and analysis-ready table using MySQL 8+. The goal is to simulate a real-world data preparation workflow where data quality, consistency, and reproducibility are critical for downstream analytics and decision-making.
+This project focuses on transforming a raw layoffs dataset into a **clean, reliable, and analysis-ready table using MySQL 8+.** The goal is to simulate a real-world data preparation workflow where data quality, consistency, and reproducibility are critical for downstream analytics and decision-making.
 
 ## 🎯 Objectives
+
 * Remove duplicate and inconsistent records
 * Standardize categorical fields (industry, country, location)
 * Handle missing and invalid values responsibly
@@ -47,6 +48,7 @@ Row count reconciliation, duplicate detection, and null audits were used to veri
 A clean, indexed output table was produced to support accurate aggregation and analysis.
 
 ## 🛠 Technical Highlights
+
 * MySQL 8+ (window functions)
 * Staging tables for safe data processing
 * Deterministic deduplication using ROW_NUMBER()
@@ -57,8 +59,8 @@ A clean, indexed output table was produced to support accurate aggregation and a
 
 ## 📦 Final Output
 
-layoffs_clean – analysis-ready table optimized for reporting and analytics
+* layoffs_clean – analysis-ready table optimized for reporting and analytics
 
-✅ Why This Project Matters
+## ✅ Why This Project Matters
 
 This project demonstrates a business-first approach to SQL, emphasizing data reliability over quick results. It highlights how strong data preparation enables trustworthy insights and prevents misleading conclusions in real-world analytics environments.
