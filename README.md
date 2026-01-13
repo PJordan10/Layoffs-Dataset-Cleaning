@@ -1,19 +1,14 @@
-Layoffs Dataset – SQL Data Cleaning & Analysis Readiness (MySQL)
+# Layoffs Dataset – SQL Data Cleaning & Analysis Readiness (MySQL)
 📌 Project Overview
 
 This project focuses on transforming a raw layoffs dataset into a clean, reliable, and analysis-ready table using MySQL 8+. The goal is to simulate a real-world data preparation workflow where data quality, consistency, and reproducibility are critical for downstream analytics and decision-making.
 
 🎯 Objectives
-
-Remove duplicate and inconsistent records
-
-Standardize categorical fields (industry, country, location)
-
-Handle missing and invalid values responsibly
-
-Convert text-based fields into proper analytical data types
-
-Deliver a validated dataset suitable for reporting and trend analysis
+* Remove duplicate and inconsistent records
+* Standardize categorical fields (industry, country, location)
+* Handle missing and invalid values responsibly
+* Convert text-based fields into proper analytical data types
+* Deliver a validated dataset suitable for reporting and trend analysis
 
 🏢 Business Context
 
