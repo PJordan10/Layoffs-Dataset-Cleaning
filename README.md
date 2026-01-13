@@ -27,18 +27,23 @@ The business need was to create a single source of truth that analysts and stake
 The project follows a structured, story-driven workflow:
 
 **1. Raw data preservation**
+
 Raw data is staged and never modified directly, ensuring traceability.
 
 **2. Data quality assessment**
+
 Initial exploration identified duplication, inconsistent categories, and missing values that would distort analysis.
 
 **3. Cleaning & standardization**
+
 SQL window functions and string normalization techniques were applied to deduplicate records and standardize fields.
 
 **4. Validation & QA checks**
+
 Row count reconciliation, duplicate detection, and null audits were used to verify improvements at each step.
 
 **5. Final delivery**
+
 A clean, indexed output table was produced to support accurate aggregation and analysis.
 
 ## 🛠 Technical Highlights
