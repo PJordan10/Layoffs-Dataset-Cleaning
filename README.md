@@ -1,66 +1,46 @@
-# Layoffs Dataset – SQL Data Cleaning & Analysis Readiness (MySQL)
+# Data Cleaning: Global Layoffs Dataset (SQL)
+
 ## 📌 Project Overview
 
-This project focuses on transforming a raw layoffs dataset into a **clean, reliable, and analysis-ready table using MySQL 8+.** The goal is to simulate a real-world data preparation workflow where data quality, consistency, and reproducibility are critical for downstream analytics and decision-making.
+I took a raw, messy dataset of global tech layoffs (2020–2023) and transformed it into a reliable SQL database for analysis. The original data had duplicates, nulls, and inconsistent text that would have skewed any reporting.
 
-## 🎯 Objectives
+## 🎯 The Challenge (The Mess)
 
-* Remove duplicate and inconsistent records
-* Standardize categorical fields (industry, country, location)
-* Handle missing and invalid values responsibly
-* Convert text-based fields into proper analytical data types
-* Deliver a validated dataset suitable for reporting and trend analysis
+Before cleaning, a simple SELECT SUM(total_laid_off) would have been wrong. The data contained:
 
-## 🏢 Business Context
+* Duplicates: Same company, same day, listed multiple times.
 
-Organizations rely on workforce and market data to identify trends, assess risk, and support strategic decisions. However, raw datasets often contain:
-* Duplicate records that inflate metrics
-* Inconsistent naming conventions that fragment analysis
-* Missing key values that reduce analytical reliability
+* Inconsistent Naming: "Crypto", "CryptoCurrency", and "Crypto Currency" were treated as 3 different industries.
 
-The business need was to create a single source of truth that analysts and stakeholders could confidently use for:
-* Layoffs analysis by industry and geography
-* Time-based trend analysis
-* Executive reporting and dashboards
+* Missing Data: Key fields like total_laid_off and percentage_laid_off were NULL in some rows.
 
-## 🔍 Approach & Data Storytelling
 
-The project follows a structured, story-driven workflow:
+## 🛠 My Approach (The Fix)
 
-**1. Raw data preservation**
+**1. Staging & Safety**
 
-Raw data is staged and never modified directly, ensuring traceability.
+Created a staging table (layoffs_staging) to preserve the raw data. I never modify the source directly—a lesson learned from "silent failures."
 
-**2. Data quality assessment**
+**2. Deduplication with Window Functions**
 
-Initial exploration identified duplication, inconsistent categories, and missing values that would distort analysis.
+Used ROW_NUMBER() over PARTITION BY (company, location, industry, date) to identify and delete [5] duplicate rows.
 
-**3. Cleaning & standardization**
+**3. Standardization**
 
-SQL window functions and string normalization techniques were applied to deduplicate records and standardize fields.
+Industry & Location Cleanup: Standardized variations (e.g., merged "Ferdericton" -> "Fredericton") using UPDATE and DISTINCT checks.
 
-**4. Validation & QA checks**
+Date Parsing: Converted the text-based date column into a proper SQL DATE format using STR_TO_DATE.
 
-Row count reconciliation, duplicate detection, and null audits were used to verify improvements at each step.
+**4. Handling NULLs & Logic**
 
-**5. Final delivery**
+Self-Join Population: Populated missing industry data by joining the table to itself. (e.g., If Airbnb had an industry listed in row A but was NULL in row B, I filled row B automatically).
 
-A clean, indexed output table was produced to support accurate aggregation and analysis.
+Removal: Removed rows where both total_laid_off and percentage_laid_off were NULL, as they provided no analytical value.
 
-## 🛠 Technical Highlights
+## 🔍 The Result
 
-* MySQL 8+ (window functions)
-* Staging tables for safe data processing
-* Deterministic deduplication using ROW_NUMBER()
-* String normalization (TRIM, LIKE, pattern matching)
-* Controlled null handling and enrichment via self-joins
-* Date conversion from text to DATE
-* QA validation queries (counts, duplicates, null audits)
+**Original Row Count:** [2361]
 
-## 📦 Final Output
+**Final Row Count:** [1995]
 
-* layoffs_clean – analysis-ready table optimized for reporting and analytics
-
-## ✅ Why This Project Matters
-
-This project demonstrates a business-first approach to SQL, emphasizing data reliability over quick results. It highlights how strong data preparation enables trustworthy insights and prevents misleading conclusions in real-world analytics environments.
+**Outcome:** A clean, optimized MySQL table ready for Tableau/Power BI ingestion.
