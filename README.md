@@ -44,3 +44,10 @@ Before cleaning, a simple SELECT SUM(total_laid_off) would have been wrong. The 
 * **Final Row Count:** [1995]
 
 * **Outcome:** A clean, optimized MySQL table ready for Tableau/Power BI ingestion.
+
+## 👤 Author
+**Jordan Porras**  
+Data Analyst | Systems Engineering Background
+Focused on SQL-driven analysis, data quality, Python, and scalable data pipelines.
+
+**Inspired By**: [Alex The Analyst](https://github.com/AlexTheAnalyst)
