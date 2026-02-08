@@ -30,6 +30,6 @@ Before cleaning, a simple SELECT SUM(total_laid_off) would have been wrong. The 
 * **Outcome:** A clean, optimized MySQL table ready for Tableau/Power BI ingestion.
 
 ## 🌟 Credits
-**Developed by:** [Jordan Porras](https://www.linkedin.com/in/jordan-porras/)
+**Developed by:** [Jordan Porras](https://www.linkedin.com/in/jordan-porras/)  
 **Data sourced from:** [AlexTheAnalyst's MySQL Series](https://github.com/AlexTheAnalyst/MySQL-YouTube-Series/blob/main/layoffs.csv)  
 **Inspired By**: AlexTheAnalyst's Data Analyst Bootcamp [Alex The Analyst](https://github.com/AlexTheAnalyst)
